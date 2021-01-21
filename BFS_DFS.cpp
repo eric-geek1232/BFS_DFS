@@ -139,7 +139,7 @@ void Graph::printList(Node *edges)
 	cout<< " ("<< edges->vertex<< ")   ";
 	
 	// KEEP ITERATING
-    printList(edges->next);
+    	printList(edges->next);
 }
 
 void Graph::startDFS(char start)
@@ -158,13 +158,13 @@ void Graph::DFS(Node *edges)
 		return;	
 	}
     
-    // GET NEIGHBOR
-    int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
+    	// GET NEIGHBOR
+    	int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
     
-    if (!adjacencyList[index]->isVisited) {
-    	// RECURSIVE FUNCTION
-    	startDFS(adjacencyList[index]->vertex);
-    	return;
+    	if (!adjacencyList[index]->isVisited) {
+    		// RECURSIVE FUNCTION
+    		startDFS(adjacencyList[index]->vertex);
+    		return;
 	}
 	
 	// GO DEEPLY
@@ -196,17 +196,17 @@ void Graph::BFS(Node *edges)
 		return;	
 	}
     
-    // GET NEIGHBOR
-    int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
+    	// GET NEIGHBOR
+    	int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
     
-    // ENQUEUE
-    if (!adjacencyList[index]->isVisited) {
-    	adjacencyList[index]->isVisited = true;
-    	queue.push(adjacencyList[index]);
+    	// ENQUEUE
+    	if (!adjacencyList[index]->isVisited) {
+    		adjacencyList[index]->isVisited = true;
+    		queue.push(adjacencyList[index]);
 	}
 	
 	// CONTINUE WITH THE NEXT NODE
-    BFS(edges->next);
+    	BFS(edges->next);
 }
 
 bool Graph::isEmpty() 
